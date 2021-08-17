@@ -15,6 +15,11 @@
 		C6F99C45204DE6BE0001F710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6F99C43204DE6BE0001F710 /* LaunchScreen.storyboard */; };
 		C83B718C25CAA94F007CDA24 /* JitsiMeetSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83B718B25CAA94F007CDA24 /* JitsiMeetSDK.xcframework */; };
 		E3DF523F2466BA36003BDAB0 /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DF523E2466BA35003BDAB0 /* WebRTC.framework */; };
+		F819DC2926C13B0A0023CDCA /* MeetingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819DC2826C13B0A0023CDCA /* MeetingRoomViewController.swift */; };
+		F819DC2B26C13B190023CDCA /* MeetingRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F819DC2A26C13B190023CDCA /* MeetingRoom.storyboard */; };
+		F819DC2D26C27AE40023CDCA /* TabbarMeetingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819DC2C26C27AE40023CDCA /* TabbarMeetingRoom.swift */; };
+		F819DC3226C3E9540023CDCA /* MenuDropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F819DC3026C3E9540023CDCA /* MenuDropDownCell.swift */; };
+		F819DC3326C3E9540023CDCA /* MenuDropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F819DC3126C3E9540023CDCA /* MenuDropDownCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		C83B718B25CAA94F007CDA24 /* JitsiMeetSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = JitsiMeetSDK.xcframework; path = Pods/JitsiMeetSDK/Frameworks/JitsiMeetSDK.xcframework; sourceTree = "<group>"; };
 		DDF649B5474DA2345D65C2B6 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		E3DF523E2466BA35003BDAB0 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = Pods/JitsiMeetSDK/Frameworks/WebRTC.framework; sourceTree = "<group>"; };
+		F819DC2826C13B0A0023CDCA /* MeetingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRoomViewController.swift; sourceTree = "<group>"; };
+		F819DC2A26C13B190023CDCA /* MeetingRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeetingRoom.storyboard; sourceTree = "<group>"; };
+		F819DC2C26C27AE40023CDCA /* TabbarMeetingRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarMeetingRoom.swift; sourceTree = "<group>"; };
+		F819DC3026C3E9540023CDCA /* MenuDropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDropDownCell.swift; sourceTree = "<group>"; };
+		F819DC3126C3E9540023CDCA /* MenuDropDownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuDropDownCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,7 @@
 		C6F99C4C204DE7230001F710 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F819DC1A26C1012E0023CDCA /* MeetingRoom */,
 				C6F99C3A204DE6BE0001F710 /* AppDelegate.swift */,
 				C6F99C41204DE6BE0001F710 /* Assets.xcassets */,
 				C6F99C46204DE6BE0001F710 /* Info.plist */,
@@ -98,6 +109,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F819DC1A26C1012E0023CDCA /* MeetingRoom */ = {
+			isa = PBXGroup;
+			children = (
+				F819DC2F26C3E8AA0023CDCA /* Cell */,
+				F819DC2E26C3E89E0023CDCA /* Tabbar */,
+				F819DC2826C13B0A0023CDCA /* MeetingRoomViewController.swift */,
+				F819DC2A26C13B190023CDCA /* MeetingRoom.storyboard */,
+			);
+			path = MeetingRoom;
+			sourceTree = "<group>";
+		};
+		F819DC2E26C3E89E0023CDCA /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F819DC2C26C27AE40023CDCA /* TabbarMeetingRoom.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		F819DC2F26C3E8AA0023CDCA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F819DC3026C3E9540023CDCA /* MenuDropDownCell.swift */,
+				F819DC3126C3E9540023CDCA /* MenuDropDownCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +149,7 @@
 				C6F99C34204DE6BE0001F710 /* Frameworks */,
 				C6F99C35204DE6BE0001F710 /* Resources */,
 				EC609BB63D90F0F00895382B /* [CP] Embed Pods Frameworks */,
+				4A75BA57D89E9D406AC2C7F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -166,7 +206,9 @@
 			files = (
 				C6F99C45204DE6BE0001F710 /* LaunchScreen.storyboard in Resources */,
 				C6F99C42204DE6BE0001F710 /* Assets.xcassets in Resources */,
+				F819DC3326C3E9540023CDCA /* MenuDropDownCell.xib in Resources */,
 				C6F99C40204DE6BE0001F710 /* Main.storyboard in Resources */,
+				F819DC2B26C13B190023CDCA /* MeetingRoom.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +235,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A75BA57D89E9D406AC2C7F7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources.sh",
+				"${PODS_ROOT}/DropDown/DropDown/resources/DropDownCell.xib",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DropDownCell.nib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC609BB63D90F0F00895382B /* [CP] Embed Pods Frameworks */ = {
@@ -222,6 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F819DC3226C3E9540023CDCA /* MenuDropDownCell.swift in Sources */,
+				F819DC2D26C27AE40023CDCA /* TabbarMeetingRoom.swift in Sources */,
+				F819DC2926C13B0A0023CDCA /* MeetingRoomViewController.swift in Sources */,
 				C6F99C3D204DE6BE0001F710 /* ViewController.swift in Sources */,
 				C6F99C3B204DE6BE0001F710 /* AppDelegate.swift in Sources */,
 			);
@@ -369,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A27SGDDW2B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JitsiMeetSDK/Frameworks",
@@ -393,6 +457,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A27SGDDW2B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/JitsiMeetSDK/Frameworks",

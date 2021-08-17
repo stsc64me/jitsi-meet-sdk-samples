@@ -32,6 +32,10 @@ class ViewController: UIViewController {
             builder.serverURL = URL(string: "https://meet.jit.si")
             // for JaaS use the obtained Jitsi JWT
             // builder.token = "SampleJWT"
+                
+            builder.audioOnly = false
+            builder.audioMuted = false
+            builder.videoMuted = false
             builder.welcomePageEnabled = false
             // Set different feature flags
             builder.setFeatureFlag("toolbox.enabled", withBoolean: false)
@@ -39,6 +43,26 @@ class ViewController: UIViewController {
         }
         
         JitsiMeet.sharedInstance().defaultConferenceOptions = defaultOptions
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.cleanUp()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let barVC = segue.destination as? UITabBarController {
+             barVC.viewControllers?.forEach {
+                if #available(iOS 13.0, *) {
+                    if let vc = $0 as? MeetingRoomViewController {
+                        vc.view = jitsiMeetView
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+             }
+         }
+        
     }
     
     @IBAction func openJitsiMeet(sender: Any?) {
@@ -50,28 +74,32 @@ class ViewController: UIViewController {
         // create and configure jitsimeet view
         let jitsiMeetView = JitsiMeetView()
         jitsiMeetView.delegate = self
-        self.jitsiMeetView = jitsiMeetView
         let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
             // for JaaS use <tenant>/<roomName> format
+            builder.userInfo?.email = "sts.cgame@gmail.com"
+            // builder.userInfo?.avatar = URL(fileURLWithPath: "")
+            builder.userInfo?.displayName = "Z64me"
             builder.room = room
+            builder.audioOnly = true
             // Settings for audio and video
             // builder.audioMuted = true;
             // builder.videoMuted = true;
         }
                 
         // setup view controller
-        let vc = UIViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.view = jitsiMeetView
+        // let vc = MeetingRoomViewController()
+        // vc.modalPresentationStyle = .formSheet
+        // vc.view = jitsiMeetView
         
         // join room and display jitsi-call
         jitsiMeetView.join(options)
-        present(vc, animated: true, completion: nil)
-        
+        self.jitsiMeetView = jitsiMeetView
+       performSegue(withIdentifier: "meetingRoom", sender: self)
     }
     
     fileprivate func cleanUp() {
         if(jitsiMeetView != nil) {
+            jitsiMeetView?.leave()
             dismiss(animated: true, completion: nil)
             jitsiMeetView = nil
         }
@@ -80,6 +108,6 @@ class ViewController: UIViewController {
 
 extension ViewController: JitsiMeetViewDelegate {
     func conferenceTerminated(_ data: [AnyHashable : Any]!) {
-        cleanUp()
+        self.cleanUp()
     }
 }

@@ -1,16 +1,20 @@
 PODS:
+  - DropDown (2.3.13)
   - JitsiMeetSDK (3.0.2)
 
 DEPENDENCIES:
+  - DropDown
   - JitsiMeetSDK (~> 3.0.2)
 
 SPEC REPOS:
   trunk:
+    - DropDown
     - JitsiMeetSDK
 
 SPEC CHECKSUMS:
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   JitsiMeetSDK: a3605b7d01974ea7d9ac27c4e76b84f2e914dc1f
 
-PODFILE CHECKSUM: 5b5dfb5ede1e708cffc8cabcd43d8ebb6b9c79ce
+PODFILE CHECKSUM: e0922c8aa3f59f5cbacf3864f8ac79dd7686d0a0
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

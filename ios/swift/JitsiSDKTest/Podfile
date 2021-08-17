@@ -2,7 +2,8 @@ platform :ios, '11.0'
 
 target 'App' do
     pod 'JitsiMeetSDK', '~> 3.0.2'
-
+    pod 'DropDown'
+    
     post_install do |installer|
         installer.pods_project.targets.each do |target|
             target.build_configurations.each do |config|
